@@ -1,0 +1,28 @@
+---
+layout: default
+title:
+---
+<section class="intro">
+  <p class="eyebrow">just me and my brain</p>
+  <h1>記錄前額葉<br>逐漸成熟的過程。</h1>
+  <p class="intro-copy">
+    關於學習、工作、關係、創造，還有那些我以為自己已經想通，
+    後來才發現沒有的事情。
+  </p>
+</section>
+
+<section class="post-list">
+  {% for post in site.posts %}
+    <article class="post-row">
+      <time datetime="{{ post.date | date_to_xmlschema }}">
+        {{ post.date | date: "%Y.%m.%d" }}
+      </time>
+      <div>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        {% if post.description %}
+          <p>{{ post.description }}</p>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</section>

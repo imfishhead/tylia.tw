@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="post">
+  <a class="back-link" href="{{ '/' | relative_url }}">← Back</a>
+
+  <header class="post-header">
+    <p class="post-date">{{ page.date | date: "%Y.%m.%d" }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  <div class="post-end">＊</div>
+
+  <section class="subscribe-box">
+    <p class="subscribe-title">subscribe to my brain</p>
+    <p>偶爾寄一封信，分享最近腦袋正在長什麼。</p>
+    <a href="{{ '/subscribe/' | relative_url }}">Subscribe →</a>
+  </section>
+</article>

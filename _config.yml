@@ -1,0 +1,17 @@
+title: "lia's brain"
+description: "just me and my brain｜記錄前額葉逐漸成熟的過程"
+url: ""
+baseurl: ""
+lang: zh-TW
+timezone: Asia/Taipei
+
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

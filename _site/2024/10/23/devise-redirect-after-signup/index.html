@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>devise 如何註冊後跳轉至指定頁面 · lia's brain</title>
+    <meta name="description" content="just me and my brain｜記錄前額葉逐漸成熟的過程">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="lia&apos;s brain" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+  <a class="site-title" href="/">lia's brain</a>
+  <nav>
+    <a href="/">Notes</a>
+    <a href="/about/">About</a>
+    <a href="/subscribe/">Subscribe</a>
+  </nav>
+</header>
+
+      <main>
+        <article class="post">
+  <a class="back-link" href="/">← Back</a>
+
+  <header class="post-header">
+    <p class="post-date">2024.10.23</p>
+    <h1>devise 如何註冊後跳轉至指定頁面</h1>
+    
+  </header>
+
+  <div class="post-body">
+    <h2 id="情境">情境</h2>
+
+<p>最近想要實現註冊之後跳轉回專案頁面的功能，目前知道的是「登入」之後會成功跳轉，但註冊卻沒辦法。</p>
+
+<p>記錄一下順 devise 的脈絡（參照這篇：https://github.com/heartcombo/devise/wiki/How-To:-Redirect-back-to-current-page-after-sign-in,-sign-out,-sign-up,-update#a-simpler-solution ）</p>
+
+<hr />
+<p>首先是我們 application_controller 有一個 <code class="language-plaintext highlighter-rouge">store_user_location!</code> 的 before_action：</p>
+
+<pre><code class="language-ruby!">
+before_action :store_user_location!, if: :storable_location?
+
+def store_user_location!
+  # :user is the scope we are authenticating
+  store_location_for(:user, params[:return_to] || request.fullpath)
+end
+</code></pre>
+
+<p>註冊連結這樣寫，上面的方法就會將 <code class="language-plaintext highlighter-rouge">params[:return_to]</code> 存到 session 裡面：</p>
+
+<pre><code class="language-ruby!">new_user_registration_path(return_to: project_path(@project, s: params[:s]))
+</code></pre>
+
+<p>中途用 puts debug 了一下，確定我們到註冊頁面的時候 <code class="language-plaintext highlighter-rouge">stored_location_for(resource)</code> 是有存到値的，但不知道為什麼沒有成功跳轉。</p>
+
+<p>查到了<a href="https://stackoverflow.com/questions/8003347/overriding-devise-after-sign-up-path-for-not-working/9253202#9253202">這篇 Stackoverflow</a>，原來是因為我們有用 <code class="language-plaintext highlighter-rouge">Confirmable</code>（註冊後需確認才算成功註冊），因此對 devise 而言使用者其實還沒成功「sign_up」，還是 inactive 的未完成狀態 😂 因此要特別加上 <code class="language-plaintext highlighter-rouge">after_inactive_sign_up_path_for</code></p>
+
+<pre><code class="language-ruby!">def after_inactive_sign_up_path_for(resource)
+  stored_location_for(resource) || user_path(resource)
+end
+
+def after_sign_up_path_for(resource)
+  stored_location_for(resource) || user_path(resource)
+end
+</code></pre>
+<hr />
+<p>原：<a href="https://hackmd.io/@tyliatw/SJAs2E8eyx">https://hackmd.io/@tyliatw/SJAs2E8eyx</a></p>
+
+  </div>
+
+  <div class="post-end">＊</div>
+
+  <section class="subscribe-box">
+    <p class="subscribe-title">subscribe to my brain</p>
+    <p>偶爾寄一封信，分享最近腦袋正在長什麼。</p>
+    <a href="/subscribe/">Subscribe →</a>
+  </section>
+</article>
+
+      </main>
+      <footer class="site-footer">
+  <span>still becoming.</span>
+</footer>
+
+    </div>
+  </body>
+</html>

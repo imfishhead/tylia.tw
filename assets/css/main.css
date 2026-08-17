@@ -1,0 +1,252 @@
+:root {
+  --bg: #fbfaf7;
+  --text: #181818;
+  --muted: #77736d;
+  --line: #dedbd4;
+  --max: 760px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    ui-sans-serif, -apple-system, BlinkMacSystemFont,
+    "PingFang TC", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.site-shell {
+  width: min(calc(100% - 40px), var(--max));
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 34px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-title {
+  text-decoration: none;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 18px;
+  font-size: 0.9rem;
+}
+
+.site-header nav a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.site-header nav a:hover,
+.site-title:hover {
+  opacity: .65;
+}
+
+main {
+  min-height: 72vh;
+}
+
+.intro {
+  padding: 96px 0 88px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: .9rem;
+  letter-spacing: .04em;
+}
+
+.intro h1 {
+  margin: 0;
+  max-width: 620px;
+  font-family:
+    ui-serif, "Songti TC", "Noto Serif TC", Georgia, serif;
+  font-size: clamp(2.8rem, 8vw, 5.4rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+
+.intro-copy {
+  max-width: 520px;
+  margin-top: 28px;
+  color: var(--muted);
+}
+
+.post-list {
+  border-top: 1px solid var(--line);
+}
+
+.post-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 24px;
+  padding: 25px 0 27px;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-row time {
+  color: var(--muted);
+  font-size: .84rem;
+  padding-top: 3px;
+}
+
+.post-row a {
+  font-family:
+    ui-serif, "Songti TC", "Noto Serif TC", Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.post-row a:hover {
+  text-decoration: underline;
+}
+
+.post-row p {
+  color: var(--muted);
+  margin: 7px 0 0;
+  font-size: .92rem;
+}
+
+.post {
+  padding: 70px 0 40px;
+}
+
+.back-link {
+  color: var(--muted);
+  font-size: .88rem;
+  text-decoration: none;
+}
+
+.post-header {
+  margin: 50px 0 48px;
+}
+
+.post-date {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.post-header h1,
+main > h1 {
+  font-family:
+    ui-serif, "Songti TC", "Noto Serif TC", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.post-header h1 {
+  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  line-height: 1.1;
+  margin: 10px 0 16px;
+}
+
+.post-description {
+  color: var(--muted);
+  max-width: 560px;
+}
+
+.post-body {
+  font-size: 1.06rem;
+}
+
+.post-body p {
+  margin: 0 0 1.6em;
+}
+
+.post-body h2 {
+  margin-top: 2.6em;
+}
+
+.post-body blockquote {
+  margin: 2em 0;
+  padding-left: 20px;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+}
+
+.post-end {
+  text-align: center;
+  padding: 54px 0 40px;
+  color: var(--muted);
+}
+
+.subscribe-box {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 30px 0;
+  margin-top: 10px;
+}
+
+.subscribe-title {
+  font-weight: 650;
+  margin-bottom: 4px;
+}
+
+.subscribe-box p {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 38px 0 56px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+main > h1 {
+  margin-top: 75px;
+  font-size: 2.8rem;
+}
+
+main > p {
+  max-width: 620px;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .intro {
+    padding: 70px 0 62px;
+  }
+
+  .post-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .post {
+    padding-top: 48px;
+  }
+}
