@@ -1,0 +1,26 @@
+.about-page { padding: 64px 0 90px; max-width: 780px; font-size: 1rem; line-height: 1.95; }
+.about-intro { margin-bottom: 32px; }
+.about-kicker { color: var(--muted); font-size: .72rem; letter-spacing: .13em; margin: 0 0 12px; }
+.about-intro h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.25; margin: 0 0 24px; letter-spacing: -.04em; font-weight: 500; }
+.about-position { color: var(--accent); font-size: clamp(1.15rem, 2vw, 1.55rem); line-height: 1.65; margin: 0; }
+.about-page h2 { font-size: 1.45rem; font-weight: 500; margin: 64px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.about-page h3 { font-size: 1.1rem; font-weight: 500; margin: 32px 0 8px; color: var(--text); line-height: 1.6; }
+.about-page p { margin: 0 0 20px; }
+.about-page strong { font-weight: 500; color: var(--accent); }
+.about-page ul { padding-left: 1.25em; }
+.about-page li { padding-left: .2em; margin: 8px 0; }
+.about-page a { text-underline-offset: 5px; }
+.about-strengths { counter-reset: strength; }
+.about-strengths h3 { counter-increment: strength; }
+.about-strengths h3::before { content: '0' counter(strength); display: inline-block; color: var(--teal); font-size: .8rem; margin-right: 14px; }
+.about-experience { border-left: 1px solid var(--line); padding-left: 25px; }
+.about-experience h3 { position: relative; }
+.about-experience h3::before { content: ''; position: absolute; left: -30px; top: .6em; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+.about-page .about-period { font-size: .8rem; color: var(--muted); margin-bottom: 14px; }
+.about-contact { margin-top: 60px; }
+@media (max-width: 760px) {
+ .about-page { padding: 40px 0 60px; font-size: .95rem; }
+ .about-page h2 { margin-top: 48px; }
+ .about-experience { padding-left: 20px; }
+ .about-experience h3::before { left: -25px; }
+}
