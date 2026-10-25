@@ -1,0 +1,20 @@
+- name: NameThePaper
+  type: Chrome 擴充功能
+  description: 下載論文時，自動依作者、年份與標題重新命名。
+  url: https://chromewebstore.google.com/detail/namethepaper/kmnlckglfclghbgdldflcioaoogkdboc
+  action: 安裝擴充功能
+  status: 已上線
+  cover_style: paper
+  thumbnail: /assets/images/projects/namethepaper.png
+  thumbnail_alt: NameThePaper 將數字檔名重新命名為作者、年份與論文標題的前後對照
+
+- name: 研究生 101
+  type: 簡報
+  description: 從研究思維、題目發想到指導教授與研究倫理，給碩一生的研究生導論。
+  # Use the local copy until the Cloudflare R2 public domain is configured.
+  url: /assets/slides/grad-school-101.pdf
+  action: 閱讀簡報
+  status: PDF · 54 頁
+  cover_style: slides
+  thumbnail: /assets/images/projects/grad-school-101.jpg
+  thumbnail_alt: 研究生 101 簡報封面

@@ -1,0 +1,41 @@
+{% assign park_theme = 'notes' %}
+{% if page.url == '/projects/' %}{% assign park_theme = 'projects' %}{% elsif page.url == '/tags/' %}{% assign park_theme = 'tags' %}{% endif %}
+<div class="park-scene park-{{ park_theme }}">
+  <svg class="park-grain" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><filter id="park-paper"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#park-paper)" opacity=".2"/></svg>
+  <span class="park-specks"></span>
+  <span class="park-star star-one"></span><span class="park-star star-two"></span><span class="park-star star-three"></span><span class="park-star star-four"></span>
+  <div class="park-cloud"><i></i><i></i><i></i></div>
+  {% if park_theme == 'projects' %}
+  <svg class="park-character park-computer" role="button" tabindex="0" aria-label="開啟遊戲室電腦" aria-pressed="false" viewBox="325 545 330 341" xmlns="http://www.w3.org/2000/svg">
+    <defs><clipPath id="park-computer-mask"><path d="M363 551H598Q629 551 629 584V720Q629 747 602 750L617 886H328L339 800L362 750Q331 741 331 714V584Q331 553 363 551Z"/></clipPath></defs>
+    <image href="{{ '/assets/images/scenes/park-reference.png' | relative_url }}" width="886" height="886" clip-path="url(#park-computer-mask)"/>
+    <defs><clipPath id="park-display-mask"><rect x="367" y="590" width="169" height="123" rx="12"/></clipPath></defs>
+    <g class="park-display" clip-path="url(#park-display-mask)">
+      <rect class="park-screen" x="367" y="590" width="169" height="123" rx="12"/>
+      <rect class="park-scanline" x="367" y="590" width="169" height="3"/>
+      <text class="park-screen-label" x="451" y="624" text-anchor="middle">PRESS</text>
+      <text class="park-screen-text" x="451" y="652" text-anchor="middle">START</text>
+      <rect class="park-load-track" x="389" y="677" width="125" height="4" rx="2"/>
+      <rect class="park-load-bar" x="389" y="677" width="0" height="4" rx="2"/>
+    </g>
+  </svg>
+  {% elsif park_theme == 'tags' %}
+  <svg class="park-character park-claw" role="button" tabindex="0" aria-label="啟動夾娃娃機，隨機探索文章標籤" viewBox="580 343 200 445" xmlns="http://www.w3.org/2000/svg">
+    <defs><clipPath id="park-claw-frame"><path d="M588 788V445A90 90 0 0 1 768 445V788H738V445A60 60 0 0 0 618 445V788Z"/></clipPath><clipPath id="park-claw-mask"><path d="M673 392H694V433H673Z"/><circle cx="679" cy="457" r="29"/><path d="M655 465L618 499Q608 510 615 524L641 562Q650 570 657 559L637 512L669 481ZM699 466L733 500Q742 510 735 524L716 561Q707 569 700 558L717 513L687 484Z"/></clipPath></defs>
+    <image href="{{ '/assets/images/scenes/park-reference.png' | relative_url }}" width="886" height="886" clip-path="url(#park-claw-frame)"/>
+    <g class="park-claw-grabber">
+    <image href="{{ '/assets/images/scenes/park-reference.png' | relative_url }}" width="886" height="886" clip-path="url(#park-claw-mask)"/>
+    </g>
+  </svg>
+  {% else %}
+  <svg class="park-character park-robot" role="button" tabindex="0" aria-label="請機器人推薦一篇筆記" viewBox="15 455 250 285" xmlns="http://www.w3.org/2000/svg">
+    <defs><clipPath id="park-robot-mask"><circle cx="145" cy="481" r="18"/><path d="M139 501H152V536H139Z"/><path d="M77 677C54 663 47 651 47 636C16 653 12 591 31 580C37 574 46 573 51 577C62 557 77 545 94 539C107 534 119 531 139 531H151C183 531 212 549 226 575C261 569 267 635 239 642L228 644C226 660 216 674 199 682C206 692 210 710 210 739H75C70 707 72 691 85 680Z"/></clipPath></defs>
+    <defs><clipPath id="robot-body-region"><rect x="15" y="678" width="250" height="62"/></clipPath><clipPath id="robot-head-region"><rect x="15" y="455" width="250" height="223"/></clipPath></defs>
+    <g clip-path="url(#robot-body-region)"><image href="{{ '/assets/images/scenes/park-reference.png' | relative_url }}" width="886" height="886" clip-path="url(#park-robot-mask)"/></g>
+    <g class="park-robot-head"><g clip-path="url(#robot-head-region)"><image href="{{ '/assets/images/scenes/park-reference.png' | relative_url }}" width="886" height="886" clip-path="url(#park-robot-mask)"/></g><circle class="park-antenna-glow" cx="145" cy="481" r="15"/></g>
+  </svg>
+  {% endif %}
+  {% if park_theme == 'notes' %}<div class="park-message" hidden><span class="park-message-label">機器人選書中</span><a class="park-message-link"></a></div>{% endif %}
+  {% if park_theme == 'projects' %}<div class="park-console-hint">點電腦，開始選作品 <span>↘</span></div>{% endif %}
+</div>
+<span class="park-announcement" role="status" aria-live="polite"></span>

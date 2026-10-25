@@ -5,7 +5,7 @@ date: 2026-08-17 22:48:00 +0800
 slug: "welcome-to-my-brain"
 description: "這裡大概會是一份長期的腦內施工紀錄。"
 lang: "zh-TW"
-published: true
+published: false
 ---
 我最近想要一個自己的地方。
 

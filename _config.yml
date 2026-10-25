@@ -7,11 +7,14 @@ timezone: Asia/Taipei
 
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+posts_per_page: 10
 
 plugins:
   - jekyll-feed
 
 exclude:
+  - generated_images
+  - design-proposals/assets
   - README.md
   - Gemfile
   - Gemfile.lock

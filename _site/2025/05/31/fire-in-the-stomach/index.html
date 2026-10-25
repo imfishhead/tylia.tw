@@ -6,14 +6,20 @@
     <title>那團在胃裡燃燒的火 · lia's brain</title>
     <meta name="description" content="just me and my brain｜記錄前額葉逐漸成熟的過程">
     <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <link rel="stylesheet" href="/assets/css/park.css">
+    <link rel="stylesheet" href="/assets/css/park-interactions.css">
     <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="lia&apos;s brain" />
   </head>
   <body>
+    <div class="site-content-viewport">
     <div class="site-shell">
       <header class="site-header">
   <a class="site-title" href="/">lia's brain</a>
   <nav>
     <a href="/">Notes</a>
+    <a href="/projects/">Projects</a>
+    <a href="/tags/">Tags</a>
     <a href="/about/">About</a>
     <a href="/subscribe/">Subscribe</a>
   </nav>
@@ -26,6 +32,13 @@
   <header class="post-header">
     <p class="post-date">2025.05.31</p>
     <h1>那團在胃裡燃燒的火</h1>
+    
+    
+      <div class="post-tags" aria-label="文章標籤">
+        
+          <a class="tag-link" href="/tags/#%E9%9D%88%E9%AD%82%E8%88%87%E7%AF%80%E6%B0%A3%E7%AD%86%E8%A8%98">靈魂與節氣筆記</a>
+        
+      </div>
     
   </header>
 
@@ -88,8 +101,32 @@
       </main>
       <footer class="site-footer">
   <span>still becoming.</span>
+  <div class="footer-scenery" aria-hidden="true"><span class="scene-sprite scene-plant"></span><span class="scene-sprite scene-moon"></span></div>
 </footer>
 
     </div>
+    </div>
+    
+
+<div class="park-scene park-notes">
+  <svg class="park-grain" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><filter id="park-paper"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#park-paper)" opacity=".2"/></svg>
+  <span class="park-specks"></span>
+  <span class="park-star star-one"></span><span class="park-star star-two"></span><span class="park-star star-three"></span><span class="park-star star-four"></span>
+  <div class="park-cloud"><i></i><i></i><i></i></div>
+  
+  <svg class="park-character park-robot" role="button" tabindex="0" aria-label="請機器人推薦一篇筆記" viewBox="15 455 250 285" xmlns="http://www.w3.org/2000/svg">
+    <defs><clipPath id="park-robot-mask"><circle cx="145" cy="481" r="18"/><path d="M139 501H152V536H139Z"/><path d="M77 677C54 663 47 651 47 636C16 653 12 591 31 580C37 574 46 573 51 577C62 557 77 545 94 539C107 534 119 531 139 531H151C183 531 212 549 226 575C261 569 267 635 239 642L228 644C226 660 216 674 199 682C206 692 210 710 210 739H75C70 707 72 691 85 680Z"/></clipPath></defs>
+    <defs><clipPath id="robot-body-region"><rect x="15" y="678" width="250" height="62"/></clipPath><clipPath id="robot-head-region"><rect x="15" y="455" width="250" height="223"/></clipPath></defs>
+    <g clip-path="url(#robot-body-region)"><image href="/assets/images/scenes/park-reference.png" width="886" height="886" clip-path="url(#park-robot-mask)"/></g>
+    <g class="park-robot-head"><g clip-path="url(#robot-head-region)"><image href="/assets/images/scenes/park-reference.png" width="886" height="886" clip-path="url(#park-robot-mask)"/></g><circle class="park-antenna-glow" cx="145" cy="481" r="15"/></g>
+  </svg>
+  
+  <div class="park-message" hidden><span class="park-message-label">機器人選書中</span><a class="park-message-link"></a></div>
+  
+</div>
+<span class="park-announcement" role="status" aria-live="polite"></span>
+
+    <script src="/assets/js/vendor/gsap.min.js" defer></script>
+    <script src="/assets/js/park.js" defer></script>
   </body>
 </html>

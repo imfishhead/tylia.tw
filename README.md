@@ -47,3 +47,12 @@ Replace this URL in `subscribe.md`:
 `https://YOUR-SUBSTACK.substack.com`
 
 with your real Substack URL.
+
+## Project thumbnails
+
+Home pagination uses `_plugins/pagination.rb` and `posts_per_page` in `_config.yml`.
+Restart Jekyll after changing plugin code or configuration. For GitHub Pages,
+use an Actions build: its built-in safe-mode build does not load custom plugins.
+
+Edit `_data/projects.yml` to update project titles, links, and thumbnails.
+Put images in `assets/images/projects/` and set `thumbnail: /assets/images/projects/your-cover.jpg` and `thumbnail_alt`. Leave `thumbnail` empty for the default cover. Images use a 4:3 frame and retain their own colors.

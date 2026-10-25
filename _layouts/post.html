@@ -10,6 +10,13 @@ layout: default
     {% if page.description %}
       <p class="post-description">{{ page.description }}</p>
     {% endif %}
+    {% if page.tags.size > 0 %}
+      <div class="post-tags" aria-label="文章標籤">
+        {% for tag in page.tags %}
+          <a class="tag-link" href="{{ '/tags/' | relative_url }}#{{ tag | url_encode }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
   </header>
 
   <div class="post-body">

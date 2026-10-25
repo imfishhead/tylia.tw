@@ -1,8 +1,10 @@
 <header class="site-header">
-  <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <a class="site-title" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>{{ site.title }}</a>
   <nav>
-    <a href="{{ '/' | relative_url }}">Notes</a>
-    <a href="{{ '/about/' | relative_url }}">About</a>
-    <a href="{{ '/subscribe/' | relative_url }}">Subscribe</a>
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Notes</a>
+    <a href="{{ '/projects/' | relative_url }}"{% if page.url == '/projects/' %} aria-current="page"{% endif %}>Projects</a>
+    <a href="{{ '/tags/' | relative_url }}"{% if page.url == '/tags/' %} aria-current="page"{% endif %}>Tags</a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    <a href="{{ '/subscribe/' | relative_url }}"{% if page.url == '/subscribe/' %} aria-current="page"{% endif %}>Subscribe</a>
   </nav>
 </header>

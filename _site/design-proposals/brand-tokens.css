@@ -1,0 +1,19 @@
+/* Proposed digital palette v1.0. Harmonized from four reference images.
+   Colors are design specifications, not exact pixel samples or print proofs. */
+:root {
+  --brand-navy: #12213a;
+  --brand-cream: #f4e8cb;
+  --brand-gold: #f5be62;
+  --brand-orange: #e58e43;
+  --brand-coral: #d56563;
+  --brand-blue: #315ea1;
+  --brand-purple: #5752a4;
+  --brand-teal: #4b9aab;
+  --brand-lavender: #9ca0cc;
+  --brand-reading-surface: #f7f2e5;
+  --brand-muted-dark: #b5bfd0;
+  --brand-muted-light: #526075;
+  --brand-radius-card: 14px;
+  --brand-radius-control: 8px;
+  --brand-space-unit: 8px;
+}

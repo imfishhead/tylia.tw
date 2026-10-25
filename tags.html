@@ -1,0 +1,39 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+{% assign sorted_tags = site.tags | sort %}
+
+<section class="tags-page">
+  <header class="tags-page-header">
+    <span class="scene-sprite scene-carousel tags-carousel" aria-hidden="true"></span>
+    <h1>Tags</h1>
+    <p>沿著標籤，找到散落在不同時間裡的同一條思路。</p>
+  </header>
+
+  <nav class="tag-cloud" aria-label="所有文章標籤">
+    {% for tag in sorted_tags %}
+      <a class="tag-link" href="#{{ tag[0] | url_encode }}">
+        {{ tag[0] }}<span class="tag-count">{{ tag[1].size }}</span>
+      </a>
+    {% endfor %}
+  </nav>
+
+  {% for tag in sorted_tags %}
+    <section class="tag-section" id="{{ tag[0] }}">
+      <header class="tag-section-header">
+        <h2>{{ tag[0] }}</h2>
+        <span>{{ tag[1].size }} 篇</span>
+      </header>
+      <ol class="tag-post-list">
+        {% for post in tag[1] %}
+          <li>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endfor %}
+</section>
